@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Add Resources Here -->
+    <Style x:Key="TextBoxTransparent" Selector="TextBox">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <!-- Otros setters para el tema -->
+    </Style>
+    
+    <SolidColorBrush x:Key="TransparentBrush" Color="Transparent"></SolidColorBrush>
+    
+</ResourceDictionary>

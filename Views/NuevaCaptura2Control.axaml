@@ -1,0 +1,160 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mxe="https://schemas.eremexcontrols.net/avalonia/editors"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AIVA.Views.NuevaCaptura2Control">
+    <UserControl.Styles>
+        <Style Selector="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        
+        <Style Selector="TextBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        
+        <Style Selector="ComboBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </UserControl.Styles>
+
+    <ScrollViewer Padding="10,0,10,0">
+        <StackPanel>
+            <!-- Header Section -->
+            <Grid ColumnDefinitions="Auto,*,Auto,Auto" Margin="0,0,0,20">
+                <ComboBox Grid.Column="0" Width="200" PlaceholderText="Lugar de revisión"/>
+                <DatePicker Grid.Column="2" Margin="5"/>
+                <TextBox Grid.Column="3" Width="100" Watermark="Usuario"/>
+            </Grid>
+
+            <!-- Buyer and Seller Sections -->
+            <Border BorderBrush="#E0E0E0" BorderThickness="1" Padding="10" Margin="0,0,0,10">
+                <StackPanel>
+                    <TextBlock Text="Información del Comprador" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                            <Button Content="Nuevo"/>
+                            <Button Content="Sin Información"/>
+                            <Button Content="Datos de Facturación"/>
+                        </StackPanel>
+                        <Grid Grid.Column="1" ColumnDefinitions="Auto,*,Auto,*">
+                            <TextBox Grid.Column="0" Width="100" Watermark="ID"/>
+                            <TextBox Grid.Column="1" Watermark="Nombre"/>
+                            <TextBox Grid.Column="3" Watermark="Teléfono"/>
+                        </Grid>
+                        <Button Grid.Column="2" Content="Guardar Datos"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border BorderBrush="#E0E0E0" BorderThickness="1" Padding="10" Margin="0,0,0,10">
+                <StackPanel>
+                    <TextBlock Text="Información del Vendedor" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                            <Button Content="Nuevo"/>
+                            <Button Content="Sin Información"/>
+                            <Button Content="Datos de Facturación"/>
+                        </StackPanel>
+                        <Grid Grid.Column="1" ColumnDefinitions="Auto,*,Auto,*">
+                            <TextBox Grid.Column="0" Width="100" Watermark="ID"/>
+                            <TextBox Grid.Column="1" Watermark="Nombre"/>
+                            <TextBox Grid.Column="3" Watermark="Teléfono"/>
+                        </Grid>
+                        <Button Grid.Column="2" Content="Guardar Datos"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- Vehicle Details -->
+            <Border BorderBrush="#E0E0E0" BorderThickness="1" Padding="10" Margin="0,0,0,10">
+                <StackPanel>
+                    <TextBlock Text="Detalles del Vehículo" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="Auto,Auto">
+                        <ComboBox Grid.Column="0" PlaceholderText="Marca"/>
+                        <ComboBox Grid.Column="1" PlaceholderText="Submarca"/>
+                        <ComboBox Grid.Column="2" PlaceholderText="Color"/>
+                        <ComboBox Grid.Column="3" PlaceholderText="Modelo"/>
+                        
+                        <Grid Grid.Row="1" Grid.ColumnSpan="4" ColumnDefinitions="*,*,*">
+                            <TextBox Grid.Column="0" Watermark="Serie"/>
+                            <TextBox Grid.Column="1" Watermark="5 DIG"/>
+                            <TextBox Grid.Column="2" Watermark="Motor"/>
+                        </Grid>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,*" Margin="0,10">
+                        <TextBox Grid.Column="0" Watermark="Placas"/>
+                        <ComboBox Grid.Column="1" PlaceholderText="Estado"/>
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <RadioButton Content="Nacional" IsChecked="True"/>
+                        <RadioButton Content="Extranjero" Margin="20,0,0,0"/>
+                    </StackPanel>
+
+                    <WrapPanel Margin="0,10">
+                        <CheckBox Content="Internet" Margin="5"/>
+                        <CheckBox Content="Bitácora" Margin="5"/>
+                        <CheckBox Content="Bases" Margin="5"/>
+                        <CheckBox Content="5 Dig" Margin="5"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Additional Information -->
+            <Border BorderBrush="#E0E0E0" BorderThickness="1" Padding="10" Margin="0,0,0,10">
+                <Grid ColumnDefinitions="*,*">
+                    <StackPanel Grid.Column="0">
+                        <CheckBox Content="Con Reporte de Robo" Margin="5"/>
+                        <CheckBox Content="Con Adeudos" Margin="5"/>
+                        
+                        <mxe:GroupBox Header="Documentos Apócrifos" Margin="5">
+                            <StackPanel>
+                                <CheckBox Content="Factura"/>
+                                <CheckBox Content="Tenencias"/>
+                                <CheckBox Content="IFE"/>
+                            </StackPanel>
+                        </mxe:GroupBox>
+                        
+                        <mxe:GroupBox Header="Numeración Alterada" Margin="5">
+                            <StackPanel>
+                                <CheckBox Content="Serie"/>
+                                <CheckBox Content="Motor"/>
+                            </StackPanel>
+                        </mxe:GroupBox>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Observaciones" Margin="5"/>
+                        <TextBox Height="100" AcceptsReturn="True"/>
+                        
+                        <Grid ColumnDefinitions="Auto,*" Margin="0,10">
+                            <TextBlock Text="Numero de Responsiva:" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1"/>
+                        </Grid>
+                        
+                        <Grid ColumnDefinitions="Auto,*" Margin="0,10">
+                            <TextBlock Text="Numero de Dictamen:" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Action Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Guardar"/>
+                <Button Content="Nuevo"/>
+                <Button Content="Facturar"/>
+                <Button Content="Dictamen"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,25 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:AIVA.CustomComponents">
+    <Design.PreviewWith>
+        <Border Padding="100">
+            <StackPanel>
+                <controls:LabeledTextBox></controls:LabeledTextBox>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|LabeledTextBox">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel>
+                    <TextBlock></TextBlock>
+                    <Border>
+                        <TextBox></TextBox>
+                    </Border>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

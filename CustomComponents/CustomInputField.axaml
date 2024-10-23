@@ -1,0 +1,84 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:AIVA.CustomComponents"
+        >
+    
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key='Light'>
+                    <SolidColorBrush x:Key='BackgroundBrush'>Transparent</SolidColorBrush>
+                    <SolidColorBrush x:Key='ForegroundBrush'>Black</SolidColorBrush>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key='Dark'>
+                    <SolidColorBrush x:Key='BackgroundBrush'>DodgerBlue</SolidColorBrush>
+                    <SolidColorBrush x:Key='ForegroundBrush'>White</SolidColorBrush>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+    
+    
+    <Style Selector="TextBox:focus-within">
+        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BackgroundBrush}" />
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="Foreground" Value="Black" /> <!-- Cambia el color del texto si es necesario -->
+    </Style>
+    
+    <Design.PreviewWith>
+        <Border Background="Aquamarine" Padding="100">
+            <StackPanel>
+                <controls:CustomInputField LabelText="ID" />
+                <controls:CustomInputField LabelText="Field"/>
+            </StackPanel>
+        </Border>
+        
+    </Design.PreviewWith>
+
+    <Style Selector="controls|CustomInputField">
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Width="350"
+                    Height="25"
+                    Margin="0,25,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="Black"
+                    BorderThickness="0,0,0,2">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Width="100"
+                            Height="26"
+                            VerticalAlignment="Center"
+                            FontFamily="Montserrat"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Text="{TemplateBinding LabelText}"
+                            TextAlignment="Left"/>
+
+                        <TextBox
+                            Classes="CustomInput"
+                            x:Name="TextInput"
+                            Width="250"
+                            Height="30"
+                            VerticalContentAlignment="Center"
+                            Background="{DynamicResource BackgroundBrush}"
+                            BorderThickness="0,0,0,0"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            TextAlignment="Center"
+                            Text="{TemplateBinding Text}"
+                            >
+                            
+                        </TextBox>
+                    </StackPanel>
+
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

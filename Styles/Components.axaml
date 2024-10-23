@@ -1,0 +1,31 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20" Background="Beige">
+            <!-- Add Controls for Previewer Here -->
+            <StackPanel>
+                <TextBox></TextBox>
+                <TextBox></TextBox>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+    
+    <!-- Add Styles Here -->
+    <Style Selector="TextBlock.Cliente" >
+        <Setter Property="FontSize" Value="26"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+    </Style>
+    
+    <Style Selector="TextBox.CustomInput:focus-within /template/ Border">
+        <Setter Property="Background" Value="{DynamicResource TransparentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TransparentBrush}" />
+        <Setter Property="BorderThickness" Value="0"></Setter>              
+    </Style>
+
+    <Style Selector="TextBox.CustomInput:pointerover /template/ Border">
+        <Setter Property="Background" Value="{DynamicResource TransparentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TransparentBrush}" />
+        <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+     
+</Styles>

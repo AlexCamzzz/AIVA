@@ -1,0 +1,96 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AIVA.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="https://github.com/projektanker/icons.avalonia"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+        x:Class="AIVA.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        RequestedThemeVariant="Light"
+        Foreground="Black"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AIVA">
+    
+    
+    <Window.Styles>
+        <Style Selector="TextBox">
+            <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}" />
+        </Style>
+    </Window.Styles>
+
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    
+    <Grid RowDefinitions="75,*">
+        <Border Grid.Row="0" Padding="0,0,0,0"
+                Background="#253c82">
+            <Grid ColumnDefinitions="70,*">
+                <Button Name="HamburgerButton"
+                        Click="OnHamburgerButtonClick"
+                        Background="#203167"
+                        BorderThickness="0"
+                        Width="70"
+                        Height="80"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Padding="4"
+                        Foreground="White"
+                        FontSize="20"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        >
+                    <i:Icon Value="fa-bars" FontSize="22" FontWeight="Bold"/>
+                        
+                </Button>
+                
+                <StackPanel Grid.Column="1" FlowDirection="RightToLeft"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                                
+                            Spacing="30">
+                    <Image Source="/Assets/MainLogoAIVA.png"
+                           Height="70"/>
+                    <TextBlock> USUARIO</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <SplitView Grid.Row="1" Name="MainSplitView"
+                   IsPaneOpen="True"
+                   OpenPaneLength="125"
+                   DisplayMode="Inline"
+                   PaneBackground="#203167"
+        >
+            <SplitView.Pane>
+                <Border Padding="0,0,0,0">
+                    <StackPanel>
+                        <ListBox Name="NavigationButtons"
+                                 Background="#203167"
+                                 Foreground="White"
+                                 BorderThickness="0"
+                                 SelectionChanged="NavigationEvent">
+                            <ListBoxItem Tag="Captura"> Nueva Captura </ListBoxItem>
+                            <ListBoxItem Tag="Clientes"> Clientes </ListBoxItem>
+                            <ListBoxItem Tag="Bitacora"> Bitácora </ListBoxItem>
+                            <ListBoxItem Tag="Resultados"> Resultados </ListBoxItem>
+                        </ListBox>
+                    </StackPanel>
+                </Border>
+            </SplitView.Pane>
+        
+            <SplitView.Content>
+                <Border Grid.Row="1">
+                    
+                    <ContentControl Name="ContentControlView">
+                    </ContentControl>
+                    
+                </Border>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Window>

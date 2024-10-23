@@ -1,0 +1,26 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AIVA.App"
+             xmlns:local="using:AIVA"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <StyleInclude Source="avares://AIVA/Styles/Components.axaml"/>
+        <StyleInclude Source="avares://AIVA/CustomComponents/CustomInputField.axaml"/>
+        <FluentTheme></FluentTheme>
+    </Application.Styles>
+             
+     <Application.Resources>
+         <ResourceDictionary>
+             <ResourceDictionary.MergedDictionaries>
+                 <ResourceInclude Source="/Styles/Resources.axaml"></ResourceInclude>
+             </ResourceDictionary.MergedDictionaries>
+         </ResourceDictionary>
+     </Application.Resources>
+             
+</Application>
